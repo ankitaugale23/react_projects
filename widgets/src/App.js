@@ -1,7 +1,10 @@
 import React, { useState } from "react";
 import Accordion from "./components/Accordion";
 import Dropdown from "./components/Dropdown";
+import Header from "./components/Header";
+import Route from "./components/Route";
 import Search from "./components/Search";
+import Translate from "./components/Translate";
 
 const items = [
     {
@@ -40,15 +43,13 @@ export default ()=> {
     const [selected, setSelected] = useState(colors[0]);
     const [toggle, setToggle] = useState(true);
    return (<div>
-       {/* <Accordion items={items} /> */}
-       {/* <Search /> */}
-
-       <button onClick={()=> {setToggle(!toggle)} }>Toggle</button>
-
-       { toggle ? (<Dropdown 
-       selected={selected}
-       onSelectChange={setSelected}
-       options={colors}
-       />) : null}
+       <Header />
+      <Route path="/" component= {<Accordion items={items} />} />
+      <Route path="/search" component= {<Search  />} />
+      <Route path="/list" component= {<Dropdown options ={colors} 
+                                        selected={selected}
+                                         onSelectChange={setSelected}
+                                         label="Select a color"/>} />
+      <Route path="/translate" component= {<Translate />} />
    </div>)
 }
