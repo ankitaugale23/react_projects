@@ -38,10 +38,10 @@ const colors = [
 
 
 
-export default ()=> {
+const App =  ()=> {
 
     const [selected, setSelected] = useState(colors[0]);
-    const [toggle, setToggle] = useState(true);
+    
    return (<div>
        <Header />
       <Route path="/" component= {<Accordion items={items} />} />
@@ -53,3 +53,5 @@ export default ()=> {
       <Route path="/translate" component= {<Translate />} />
    </div>)
 }
+
+export default App;

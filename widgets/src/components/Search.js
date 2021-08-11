@@ -38,7 +38,7 @@ const Search = () => {
             })
             setResults(data.query.search);
         }
-        if(term && !results.length)
+        if(term)
         {
             search();
         }
@@ -63,7 +63,7 @@ const Search = () => {
                 <input 
                 value={term}
                 onChange={e => {
-                    {setTerm(e.target.value)}
+                    setTerm(e.target.value)
                 }}>
                 </input>
                 <div className="ui celled list">
